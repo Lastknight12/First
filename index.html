@@ -1,73 +1,115 @@
 <!DOCTYPE html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=1.0, minimum-scale=1.0, maximum-scale=1.0">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, user-scalable=1.0, minimum-scale=1.0, maximum-scale=1.0"
+  />
+  <link rel="stylesheet" href="style.css" />
 </head>
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital@1&display=swap');
-  body {
-    font-family: "Montserrat", sans-serif;
-  }
-</style>
+<style></style>
 <body>
-  <embed src="Inspiring Cinematic Background Music For Videos (online-audio-converter.com).mp3" width="180" height="90" loop="false" autostart="true" hidden="true" />
-<body>
+  <div class="screen" id="screen">
+    <div class="demo" id="demo">Last production presents</div>
+    <div class="preloader" id="preloader">Квест "Ласточка 1337"</div>
+  </div>
+
+  <div class="play" id="scene">
+    <button class="button" id="play">PLAY</button>
+  </div>
+
+   <embed src="Inspiring Cinematic Background Music For Videos (online-audio-converter.com).mp3" width="180" height="90" loop="false" autostart="true" hidden="true" />
+
+  <div class="GRT" id="GRT">
+    RU: Выберите язык <br />
+    UKR: Виберіть мову
+    <div class="lang">
+      <button id="UK">UKR</button>
+      <button id="RU">RU</button>
+    </div>
+  </div>
+  <h1 id="1">Last?: Привіт!</h1>
+  <h1 id="3">Last?: Почнемо з першої загадки</h1>
+  <a id="4" href="" download="">Скачати картинку</a>
+
+  <h1 id="11">Last?: Привет!</h1>
+  <h1 id="33">Last?: Начнем с первой загадки</h1>
+  <a id="44" href="" download="">Загрузить изображение</a>
+
+  <body>
     <html>
       <script>
+        document.body.onload = () => {
+          setTimeout(function () {
+            document.getElementById("demo").classList.add("ok");
+
+            setTimeout(function () {
+              document.getElementById("demo").classList.remove("ok");
+            }, 4000);
+
+            setTimeout(function () {
+              document.getElementById("demo").style.display = "none";
+            }, 6000);
+
+            setTimeout(function () {
+              document.getElementById("preloader").classList.add("done");
+            }, 7500);
+
+            setTimeout(function () {
+              document.getElementById("screen").style.display = "none";
+            }, 16000);
+          }, 1700);
+        };
+
+        let play = document.getElementById("play");
+        let scene = document.getElementById("scene");
+
+        play.addEventListener("click", function () {
+          scene.style.display = "none";
+        });
+
         function game() {
-          document.body.style.margin = "0";
-          document.body.style.padding = "0";
-          let lang_ru = {
-            message1: "Last?: Снова привет!",
-            message2: "Last?: И ето квест V2!",
-            message3: "Last?: Начнем с первой загадки",
-          };
-          let lang_uk = {
-            message1: "Last?: Знову привіт!",
-            message2: "Last?: І це квест V2!",
-            message3: "Last?: Почнемо з першої загадки",
-          };
-          document.body.style.display = "flex";
-          document.body.style.alignItems = "center";
-          document.body.style.justifyContent = "center";
-          document.body.style.flexDirection = "column";
-          document.write(
-            "<h1>UK: Виберіть мову перекладу <br> RU: Выбери язык перевода</h1>"
-          );
-          document.write(
-            "<div style='display: flex; align-items: center; justify-content: center; gap: 30px;'><button id='UK'>UK</button><button id='RU'>RU</button></div>"
-          );
           let uk = document.getElementById("UK");
           let ru = document.getElementById("RU");
+
+          const first = document.getElementById("1");
+          const two = document.getElementById("3");
+          const three = document.getElementById("4");
+          const first1 = document.getElementById("11");
+          const first2 = document.getElementById("33");
+          const first3 = document.getElementById("44");
+
+          first.style.display = "none";
+          two.style.display = "none";
+          three.style.display = "none";
+          first1.style.display = "none";
+          first2.style.display = "none";
+          first3.style.display = "none";
+
           uk.addEventListener("click", () => {
-            uk_game();
+            first.style.display = "block";
+            window.setTimeout(function () {
+              two.style.display = "block";
+            }, 2000);
+            window.setTimeout(function () {
+              three.style.display = "block";
+            }, 4000);
+            document.body.style.display = "block";
+            document.body.style.margin = "10px";
+            document.getElementById("GRT").style.display = "none";
           });
           ru.addEventListener("click", () => {
-            ru_game();
+            first1.style.display = "block";
+            window.setTimeout(function () {
+              first2.style.display = "block";
+            }, 2000);
+            window.setTimeout(function () {
+              first3.style.display = "block";
+            }, 4000);
+            document.body.style.display = "block";
+            document.body.style.margin = "10px";
+            document.getElementById("GRT").style.display = "none";
+            document.getElementById("GRT").style.display = "none";
           });
-          function uk_game() {
-            document.write(`<h1>${lang_uk.message1}</h1>`);
-            window.setTimeout(function () {
-              document.write(`<h1>${lang_uk.message2}</h1>`);
-            }, 2000);
-            window.setTimeout(function () {
-              document.write(`<h1>${lang_uk.message3}</h1>`);
-            }, 4000);
-            window.setTimeout(function () {
-              document.write(`<a href='first(4).png' download="">Скачати файл</a>`);
-            }, 6000);
-          }
-          function ru_game() {
-            document.write(`<h1>${lang_ru.message1}</h1>`);
-            window.setTimeout(function () {
-              document.write(`<h1>${lang_ru.message2}</h1>`);
-            }, 2000);
-            window.setTimeout(function () {
-              document.write(`<h1>${lang_ru.message3}</h1>`);
-            }, 4000);
-            window.setTimeout(function () {
-              document.write(`<a href='first(4).png' download="">Загрузить файл</a>`);
-            }, 6000);
-          }
         }
         game();
       </script>
