@@ -17,7 +17,7 @@
     <button class="button" id="play">PLAY</button>
   </div>
 
-   <embed src="Inspiring Cinematic Background Music For Videos (online-audio-converter.com).mp3" width="180" height="90" loop="false" autostart="true" hidden="true" />
+   <embed id="em" src="Inspiring Cinematic Background Music For Videos (online-audio-converter.com).mp3" width="180" height="90" loop="false" autostart="true" hidden="true" />
 
   <div class="GRT" id="GRT">
     RU: Выберите язык <br />
@@ -56,6 +56,7 @@
 
             setTimeout(function () {
               document.getElementById("screen").style.display = "none";
+              document.getElementById("em").setAttribute("href", "hreff")
             }, 16000);
           }, 1700);
         };
